@@ -6,6 +6,8 @@
 - Folder names must use the format `task_0001`, `task_0002`, `task_0003`, and so on.
 - Inside each task folder, create a `task.md` file describing the work to be done.
 - Always use the next available sequence number and do not reuse existing task folder numbers.
+- Keep `docs/tasks/tasks.md` updated whenever a task is added or a task completion status changes.
+- `docs/tasks/tasks.md` must include a short description and completion status for each task.
 
 ## Task Documentation Rule
 

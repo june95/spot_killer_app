@@ -1,0 +1,8 @@
+{
+  "extends": "@spot-killer/config/tsconfig/react-native.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

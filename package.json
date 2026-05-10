@@ -1,0 +1,18 @@
+{
+  "name": "spot-killer-app",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev": "pnpm --filter @spot-killer/web dev",
+    "dev:web": "pnpm --filter @spot-killer/web dev",
+    "dev:mobile": "pnpm --filter @spot-killer/mobile dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

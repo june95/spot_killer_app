@@ -1,0 +1,21 @@
+{
+  "name": "@spot-killer/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "node -e \"console.log('packages/api build placeholder')\"",
+    "lint": "node -e \"console.log('packages/api lint placeholder')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node -e \"console.log('packages/api test placeholder')\""
+  },
+  "dependencies": {
+    "@spot-killer/domain": "workspace:*"
+  },
+  "devDependencies": {
+    "@spot-killer/config": "workspace:*"
+  }
+}

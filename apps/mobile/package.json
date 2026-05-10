@@ -1,0 +1,20 @@
+{
+  "name": "@spot-killer/mobile",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node -e \"console.log('apps/mobile placeholder: run task_0018 to bootstrap Expo')\"",
+    "build": "node -e \"console.log('apps/mobile build placeholder')\"",
+    "lint": "node -e \"console.log('apps/mobile lint placeholder')\"",
+    "typecheck": "node -e \"console.log('apps/mobile typecheck placeholder')\"",
+    "test": "node -e \"console.log('apps/mobile test placeholder')\""
+  },
+  "dependencies": {
+    "@spot-killer/api": "workspace:*",
+    "@spot-killer/domain": "workspace:*",
+    "@spot-killer/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@spot-killer/config": "workspace:*"
+  }
+}
