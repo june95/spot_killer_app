@@ -36,10 +36,11 @@ corepack prepare pnpm@10.0.0 --activate
 ```sh
 pnpm install
 pnpm dev
+pnpm dev:web
 pnpm build
 pnpm lint
 pnpm typecheck
 pnpm test
 ```
 
-현재 `apps/web`과 `apps/mobile`은 다음 task에서 실제 앱으로 부트스트랩될 placeholder 상태입니다.
+`apps/web`은 Next.js App Router 기반 웹앱입니다. `apps/mobile`은 후속 task에서 Expo 앱으로 부트스트랩될 placeholder 상태입니다.

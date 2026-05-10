@@ -3,18 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "node -e \"console.log('apps/web placeholder: run task_0002 to bootstrap Next.js')\"",
-    "build": "node -e \"console.log('apps/web build placeholder')\"",
-    "lint": "node -e \"console.log('apps/web lint placeholder')\"",
-    "typecheck": "node -e \"console.log('apps/web typecheck placeholder')\"",
-    "test": "node -e \"console.log('apps/web test placeholder')\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node -e \"console.log('apps/web tests are not configured yet')\""
   },
   "dependencies": {
     "@spot-killer/api": "workspace:*",
     "@spot-killer/domain": "workspace:*",
-    "@spot-killer/ui": "workspace:*"
+    "@spot-killer/ui": "workspace:*",
+    "next": "^16.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@spot-killer/config": "workspace:*"
+    "@spot-killer/config": "workspace:*",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.2.0"
   }
 }
