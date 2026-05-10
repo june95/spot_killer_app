@@ -1,14 +1,28 @@
-:root {
-  color-scheme: light;
-  --background: #f7f8f3;
-  --surface: #ffffff;
-  --surface-strong: #f0f4ec;
-  --text: #17211b;
-  --muted: #647067;
-  --border: #dfe7dc;
-  --accent: #277548;
-  --accent-strong: #1f5f3a;
-  --shadow: 0 18px 50px rgba(23, 33, 27, 0.14);
+@import "tailwindcss";
+
+@theme {
+  --color-app-background: #f7f8f3;
+  --color-app-surface: #ffffff;
+  --color-app-surface-raised: #f0f4ec;
+  --color-app-text: #17211b;
+  --color-app-muted: #647067;
+  --color-app-border: #dfe7dc;
+  --color-brand: #277548;
+  --color-brand-strong: #1f5f3a;
+
+  --color-heart-red: #e23b3b;
+  --color-heart-orange: #f07a2b;
+  --color-heart-yellow: #e4b72e;
+  --color-heart-green: #2f9f64;
+  --color-heart-blue: #3b82d6;
+  --color-heart-purple: #8b5fc7;
+  --color-heart-black: #242424;
+
+  --spacing-map-gutter: 1.25rem;
+  --radius-control: 8px;
+  --radius-panel: 8px;
+  --shadow-panel: 0 18px 50px rgba(23, 33, 27, 0.14);
+  --shadow-marker: 0 10px 24px rgba(23, 33, 27, 0.18);
 }
 
 * {
@@ -22,8 +36,8 @@ body {
 }
 
 body {
-  background: var(--background);
-  color: var(--text);
+  background: var(--color-app-background);
+  color: var(--color-app-text);
   font-family:
     Arial,
     "Apple SD Gothic Neo",
@@ -33,221 +47,4 @@ body {
 
 button {
   font: inherit;
-}
-
-.app-shell {
-  min-height: 100vh;
-  padding: 24px;
-}
-
-.map-surface {
-  position: relative;
-  min-height: calc(100vh - 48px);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.top-bar {
-  position: absolute;
-  z-index: 2;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.eyebrow {
-  margin: 0 0 6px;
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.top-bar h1 {
-  max-width: 520px;
-  margin: 0;
-  font-size: 28px;
-  line-height: 1.2;
-}
-
-.primary-action {
-  min-height: 44px;
-  border: 0;
-  border-radius: 8px;
-  padding: 0 18px;
-  background: var(--accent);
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: default;
-}
-
-.map-placeholder {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(39, 117, 72, 0.12), transparent 28%),
-    linear-gradient(135deg, #f9fbf5, #edf4ea);
-}
-
-.map-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(39, 117, 72, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(39, 117, 72, 0.08) 1px, transparent 1px);
-  background-size: 42px 42px;
-}
-
-.map-placeholder p {
-  z-index: 1;
-  margin: 0;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.88);
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.marker {
-  position: absolute;
-  z-index: 1;
-  display: grid;
-  width: 44px;
-  height: 44px;
-  place-items: center;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 10px 24px rgba(23, 33, 27, 0.18);
-  font-size: 24px;
-}
-
-.marker-red {
-  top: 34%;
-  left: 30%;
-}
-
-.marker-green {
-  right: 28%;
-  bottom: 34%;
-}
-
-.marker-purple {
-  top: 46%;
-  right: 42%;
-}
-
-.spot-preview {
-  position: absolute;
-  z-index: 2;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 14px 36px rgba(23, 33, 27, 0.12);
-}
-
-.spot-preview > div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.spot-emoji {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  border-radius: 8px;
-  background: var(--surface-strong);
-  font-size: 26px;
-}
-
-.spot-preview h2 {
-  margin: 0 0 4px;
-  font-size: 18px;
-}
-
-.spot-preview p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.marker-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 8px;
-  max-width: 420px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.marker-list li {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 32px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0 10px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-@media (max-width: 720px) {
-  .app-shell {
-    padding: 0;
-  }
-
-  .map-surface {
-    min-height: 100vh;
-    border: 0;
-    border-radius: 0;
-  }
-
-  .top-bar,
-  .spot-preview {
-    left: 12px;
-    right: 12px;
-  }
-
-  .top-bar {
-    flex-direction: column;
-  }
-
-  .top-bar h1 {
-    font-size: 24px;
-  }
-
-  .primary-action {
-    width: 100%;
-  }
-
-  .spot-preview {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .marker-list {
-    justify-content: flex-start;
-  }
 }

@@ -6,3 +6,5 @@ dist/
 build/
 *.tsbuildinfo
 .env*.local
+.vscode/*
+!.vscode/settings.json
