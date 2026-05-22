@@ -31,6 +31,8 @@
 
 ## Code Implementation Rule
 
-- During code implementation, include helpful explanatory comments in the implemented code where they clarify non-obvious logic.
+- During code implementation, include helpful explanatory comments in the implemented code.
+- Every actual code implementation task must add at least one concise explanatory code comment in the changed implementation code, unless the user explicitly requests no comments.
+- The comment must explain intent, boundary, decision reason, or non-obvious behavior, not merely repeat what the code says.
 - Keep code comments concise and avoid excessive verbosity.
 - Do not add comments that merely restate obvious code behavior.

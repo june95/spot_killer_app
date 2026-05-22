@@ -10,9 +10,14 @@
     "build": "node -e \"console.log('packages/domain build placeholder')\"",
     "lint": "node -e \"console.log('packages/domain lint placeholder')\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "node -e \"console.log('packages/domain test placeholder')\""
+    "test": "tsx --test src/domain.test.ts"
   },
   "devDependencies": {
-    "@spot-killer/config": "workspace:*"
+    "@spot-killer/config": "workspace:*",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.22.3"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
   }
 }
