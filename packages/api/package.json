@@ -13,9 +13,11 @@
     "test": "node -e \"console.log('packages/api test placeholder')\""
   },
   "dependencies": {
-    "@spot-killer/domain": "workspace:*"
+    "@spot-killer/domain": "workspace:*",
+    "@supabase/supabase-js": "^2.80.0"
   },
   "devDependencies": {
-    "@spot-killer/config": "workspace:*"
+    "@spot-killer/config": "workspace:*",
+    "@types/node": "^24.0.0"
   }
 }
