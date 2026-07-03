@@ -1,4 +1,5 @@
 import { markerPresets } from "@spot-killer/ui";
+import { AuthStatus } from "./auth/auth-status";
 
 const mapMarkers = [
   { className: "left-[30%] top-[34%]", preset: markerPresets[0] },
@@ -28,6 +29,7 @@ export default function HomePage() {
           >
             Spot 추가
           </button>
+          <AuthStatus />
         </header>
 
         <div className="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_20%_25%,rgba(39,117,72,0.12),transparent_28%),linear-gradient(135deg,#f9fbf5,#edf4ea)]">

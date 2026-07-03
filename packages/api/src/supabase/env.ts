@@ -15,16 +15,24 @@ export type PublicSupabaseConfig = Readonly<{
 }>;
 
 type PublicSupabaseEnv = Partial<
-  Record<(typeof publicSupabaseEnvKeys)[keyof typeof publicSupabaseEnvKeys], string>
+  Record<
+    (typeof publicSupabaseEnvKeys)[keyof typeof publicSupabaseEnvKeys],
+    string | undefined
+  >
 >;
 
-export function getPublicSupabaseConfig(
-  env: PublicSupabaseEnv = process.env,
-): PublicSupabaseConfig {
-  const url = env[publicSupabaseEnvKeys.url];
+declare const process:
+  | {
+      env: PublicSupabaseEnv;
+    }
+  | undefined;
+
+export function getPublicSupabaseConfig(env?: PublicSupabaseEnv): PublicSupabaseConfig {
+  const source = env ?? getRuntimePublicEnv();
+  const url = source[publicSupabaseEnvKeys.url];
   const publishableKey =
-    env[publicSupabaseEnvKeys.publishableKey] ??
-    env[publicSupabaseEnvKeys.legacyAnonKey];
+    source[publicSupabaseEnvKeys.publishableKey] ??
+    source[publicSupabaseEnvKeys.legacyAnonKey];
 
   if (!url || !publishableKey) {
     throw new Error(
@@ -33,4 +41,18 @@ export function getPublicSupabaseConfig(
   }
 
   return { url, publishableKey };
+}
+
+function getRuntimePublicEnv(): PublicSupabaseEnv {
+  // Next.js only exposes public env vars to client bundles when they are statically referenced.
+  return {
+    NEXT_PUBLIC_SUPABASE_URL:
+      typeof process === "undefined" ? undefined : process.env.NEXT_PUBLIC_SUPABASE_URL,
+    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:
+      typeof process === "undefined"
+        ? undefined
+        : process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY:
+      typeof process === "undefined" ? undefined : process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  };
 }

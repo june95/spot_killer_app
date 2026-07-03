@@ -13,7 +13,9 @@ export function createSpotKillerBrowserClient(
     auth: {
       persistSession: true,
       autoRefreshToken: true,
-      detectSessionInUrl: true,
+      // OAuth callbacks are handled explicitly in the app route to keep onboarding steps predictable.
+      detectSessionInUrl: false,
+      flowType: "pkce",
     },
   });
 }
