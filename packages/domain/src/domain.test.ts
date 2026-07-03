@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  groupRoleSchema,
   parseDbSpotRow,
   spotMemoSchema,
   spotPhotoSchema,
@@ -57,6 +58,11 @@ test("spot schema rejects invalid coordinates", () => {
 test("spot schema rejects invalid dates and URLs", () => {
   assert.equal(spotSchema.safeParse({ ...validSpot, createdAt: "today" }).success, false);
   assert.equal(spotSchema.safeParse({ ...validSpot, externalUrl: "not-a-url" }).success, false);
+});
+
+test("group roles match database RLS roles", () => {
+  assert.equal(groupRoleSchema.safeParse("editor").success, true);
+  assert.equal(groupRoleSchema.safeParse("admin").success, false);
 });
 
 test("memo and photo schemas cover core child records", () => {

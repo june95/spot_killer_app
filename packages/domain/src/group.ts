@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { isoDateTimeSchema, uuidSchema } from "./primitives";
 
-export const groupRoleSchema = z.enum(["owner", "admin", "member"]);
+// Keep client validation aligned with the database RLS roles.
+export const groupRoleSchema = z.enum(["owner", "editor", "viewer"]);
 
 export const groupSchema = z.object({
   id: uuidSchema,
